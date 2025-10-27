@@ -36,32 +36,13 @@ plt.legend(['Actual', 'Predicted'])
 plt.tight_layout()
 plt.show()
 
-# Calculate accuracy
+
 acc = (df['Predicted_Basic'] == df['Sleep Disorder']).mean()
 print(f"3-Factor System Accuracy: {acc:.2%}")
 
-# Display a sample of the dataframe
+
 print(df[['Sleep Duration', 'Daily Steps', 'Stress Level', 'Sleep Disorder', 'Predicted_Basic']].head(20))
 
 
 
 
-
-'''
-def predict_sleep_disorder(row):
-    if row['BMI Category'] in ['Obese', 'Overweight'] and row['Daily Steps'] < 5000:
-        return 'Sleep Apnea'
-    
-    if row['Sleep Duration'] < 6.5 or row['Stress Level'] >= 7:
-        return 'Insomnia'
-    
-    if 6.5 <= row['Sleep Duration'] <= 8 and row['Daily Steps'] >= 6000 and row['Stress Level'] <= 6:
-        return 'None'
-    
-    return 'None'
-
-df['Predicted_Sleep_Disorder'] = df.apply(predict_sleep_disorder, axis=1)
-
-print(df[['Sleep Duration', 'Quality of Sleep', 'BMI Category', 'Daily Steps', 'Stress Level', 
-          'Sleep Disorder', 'Predicted_Sleep_Disorder']].head(10))
-'''
